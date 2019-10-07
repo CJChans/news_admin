@@ -6,6 +6,7 @@
 </template>
 
 <script>
+
 export default {
 
 }
@@ -19,6 +20,7 @@ export default {
 
   a{
     color: inherit;
+    text-decoration: none;
   }
 
   ul,li,ol{
