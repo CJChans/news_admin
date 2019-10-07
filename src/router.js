@@ -16,7 +16,13 @@ export default new Router({
     routes: [
         //登录页
         { path: "/login", component: Login },
-        { path: "/", component: Index },
+        {
+            path: "/",
+            component: Index,
+            children: [
+
+            ]
+        },
 
     ]
 })
