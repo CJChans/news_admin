@@ -3,6 +3,8 @@ import Router from 'vue-router'
 
 import Login from "@/views/Login.vue"
 import Index from "@/views/Index.vue"
+import PostList from "@/views/PostList.vue"
+import PostAdd from "@/views/PostAdd.vue"
 
 Vue.use(Router)
 
@@ -20,7 +22,8 @@ export default new Router({
             path: "/",
             component: Index,
             children: [
-
+                { path: "post_list", component: PostList },
+                { path: "post_add", component: PostAdd },
             ]
         },
 

@@ -23,8 +23,12 @@
         </template>
         <el-menu-item-group>
          
-          <el-menu-item index="1-1">文章列表</el-menu-item>
-          <el-menu-item index="1-2">发布文章</el-menu-item>
+          <el-menu-item index="1-1">
+              <router-link to="/post_list">文章列表</router-link>
+            </el-menu-item>
+          <el-menu-item index="1-2">
+               <router-link to="/post_add">发布文章</router-link>
+              </el-menu-item>
         </el-menu-item-group>
        
       </el-submenu>
@@ -39,7 +43,10 @@
         <span>退出</span>
     </el-header>
     <!-- 子页面显示的内容 -->
-    <el-main>Main</el-main>
+    <el-main>
+        <!-- 显示子路由匹配的页面 -->
+        <router-view></router-view>
+    </el-main>
   </el-container>
 </el-container>
 </template>
