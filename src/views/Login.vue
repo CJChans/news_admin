@@ -62,7 +62,7 @@ export default {
                     }).then(res=>{
                         console.log(res.data)
                         // console.log(this.form)
-                        const { message,statusCode} = res.data;
+                        const { message,statusCode,data} = res.data;
 
                         //请求失败
                         if(statusCode ===  401){
@@ -74,7 +74,7 @@ export default {
                         this.$message.success(message);
 
                         //把用户信息保存到本地
-                        localStorage.setItem("user",JSON.stringify(this.data));
+                        localStorage.setItem("user",JSON.stringify(data));
 
                         //跳转到后台管理首页
                         setTimeout(() => {
