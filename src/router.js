@@ -21,9 +21,10 @@ export default new Router({
         {
             path: "/",
             component: Index,
+            meta: "首页",
             children: [
-                { path: "post_list", component: PostList },
-                { path: "post_add", component: PostAdd },
+                { path: "post_list", component: PostList, meta: "文章列表", },
+                { path: "post_add", component: PostAdd, meta: "发布文章", },
             ]
         },
 
