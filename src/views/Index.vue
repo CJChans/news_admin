@@ -2,9 +2,9 @@
   <el-container class="container">
       <!-- 侧边栏 -->
   <el-aside width="200px">
-      <div class="logo">
-          头条新闻
-      </div>
+      
+          <img src="../../static/timg.jpg" class="logo">
+    
 
       <!-- default-active：当前高亮选中的菜单 -->
        <el-menu
@@ -40,7 +40,9 @@
     <el-header>
         <img :src="$axios.defaults.baseURL + user.user.head_img" class="head_img">
         <span>{{user.user.nickname}}</span>
-        <span>退出</span>
+         <router-link to="/login">
+        退出
+        </router-link>
     </el-header>
     <!-- 子页面显示的内容 -->
     <el-main>
@@ -114,11 +116,9 @@ export default {
   }
 
   .logo{
+      display: block;
       height: 60px;
       width:200px;
-      line-height: 60px;
-      text-align: center;
-      font-size:18px;
-      color:#eee;
+      object-fit: cover;
   }
 </style>
