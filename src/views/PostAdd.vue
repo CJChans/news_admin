@@ -30,6 +30,19 @@
         </el-upload>
       </el-form-item>
 
+       <el-form-item label="栏目">
+        <!-- 栏目的数据来自于后台 -->
+        <el-checkbox-group v-model="form.categories">
+          <!-- allCate所有的栏目 -->
+          <el-checkbox 
+          v-for="(item, index) in allCate"
+          :key="index"
+          v-if="item.id !== 999"
+          :label="item.id" 
+          name="type">{{item.name}}</el-checkbox>
+        </el-checkbox-group>
+      </el-form-item>
+
       <el-form-item label="封面">
         <!-- action：上传图片的链接
         list-type: 声明当前是上传多张图片
@@ -69,6 +82,7 @@ export default {
       form: {
         title: "", // 标题
         content: "",
+         categories: [],
         cover: [],
         type: 1
       },
@@ -137,7 +151,16 @@ export default {
     },
 
     onSubmit() {
-      console.log(this.form);    
+      console.log(this.form); 
+       const {categories} = this.form;
+      this.form.categories = [];
+      // 给栏目把数字转换成接口需要的对象
+      categories.forEach(v => {
+        this.form.categories.push({
+          id: v
+        })
+      });
+         
       // 使用refs获取编辑器中内容
       if (this.form.type === 1) {
         this.form.content = this.$refs.vueEditor.editor.root.innerHTML;
