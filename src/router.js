@@ -5,6 +5,7 @@ import Login from "@/views/Login.vue"
 import Index from "@/views/Index.vue"
 import PostList from "@/views/PostList.vue"
 import PostAdd from "@/views/PostAdd.vue"
+import PostEdit from "@/views/PostEdit";
 
 Vue.use(Router)
 
@@ -25,6 +26,7 @@ export default new Router({
             children: [
                 { path: "post_list", component: PostList, meta: "文章列表", },
                 { path: "post_add", component: PostAdd, meta: "发布文章", },
+                { path: "post_edit/:id", component: PostEdit, meta: "编辑文章", }
             ]
         },
 

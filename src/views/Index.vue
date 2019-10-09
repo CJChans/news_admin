@@ -26,8 +26,13 @@
           <el-menu-item index="1-1">
               <router-link to="/post_list">文章列表</router-link>
             </el-menu-item>
+
           <el-menu-item index="1-2">
                <router-link to="/post_add">发布文章</router-link>
+              </el-menu-item>
+
+              <el-menu-item index="1-3">
+               <router-link to="/post_edit/:id">编辑文章</router-link>
               </el-menu-item>
         </el-menu-item-group>
        
@@ -40,9 +45,10 @@
     <el-header>
         <img :src="$axios.defaults.baseURL + user.user.head_img" class="head_img">
         <span>{{user.user.nickname}}</span>
-         <router-link to="/login">
+         <!-- <router-link to="/login">
         退出
-        </router-link>
+        </router-link> -->
+        <span @click="handleLogout" style="cursor:pointer">退出</span>
     </el-header>
     <!-- 子页面显示的内容 -->
     <el-main>
@@ -88,9 +94,18 @@ export default {
           }
       },
 
-    mounted(){
-        // console.log(user)
-    }
+   methods: {
+        handleLogout(){
+            this.$confirm('确定退出?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                localStorage.removeItem(`user`);
+                this.$router.push("/login");
+            });
+        }
+   }
 }
 </script>
 
