@@ -2,8 +2,9 @@
   <el-container class="container">
     <!-- 侧边栏 -->
     <el-aside width="200px">
-      <img src="../../static/timg.jpg" class="logo" />
-
+      <div class="logo">
+      <img src="../../static/news.png"/>
+      </div>
       <!-- default-active：当前高亮选中的菜单 -->
       <el-menu
         default-active="1"
@@ -160,7 +161,15 @@ span {
   display: block;
   height: 60px;
   width: 200px;
-  object-fit: cover;
+
+  img{
+    display: block;
+    object-fit: cover;
+    height: 60px;
+  
+    margin: 0 auto;
+    
+  }
 }
 
 .el-menu {
