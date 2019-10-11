@@ -99,10 +99,13 @@ export default {
   methods:{
       // 图片上传成功的回调函数
       handleSuccess(res, file){
+         console.log(res,123123)
             this.form.cover.push({
             id: res.data.id,
             url: this.$axios.defaults.baseURL +res.data.url
-      })
+        })
+
+     
 
       },
 
@@ -133,12 +136,6 @@ export default {
             });
                
     },
-
-    // 上传视频
-    handleSuccess(res) {
-      // 把视频连接保存到content
-      this.form.content = this.$axios.defaults.baseURL + res.data.url;
-    }
 
   },
 
